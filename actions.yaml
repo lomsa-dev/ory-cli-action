@@ -1,0 +1,21 @@
+name: "ORY CLI"
+description: "Authenticate and run ORY CLI commands"
+inputs:
+  username:
+    description: "ORY username"
+    required: true
+  password:
+    description: "ORY password"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: sudo apt-get install -y expect
+      shell: bash
+    - run: bash <(curl https://raw.githubusercontent.com/ory/meta/master/install.sh) -b . ory && sudo mv ./ory /usr/local/bin/
+      shell: bash
+    - run: |
+        /usr/bin/expect -c 'spawn ory auth; expect "Do you want to sign in to an existing Ory Network account?"; send -- "y\r"; expect "Email:"; send -- "${{ inputs.username }}\r"; expect "Password:"; send -- "${{ inputs.password }}\r"; expect eof'
+      shell: bash
+    - run: ory ${{ inputs.command }}
+      shell: bash
