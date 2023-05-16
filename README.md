@@ -20,7 +20,11 @@ steps:
     with:
       username: ${{ secrets.ORY_USERNAME }}
       password: ${{ secrets.ORY_PASSWORD }}
-      command: 'update opl --file ./path/to/file.yaml --project your_ory_project'
+      command: |
+        update opl --file ./path/to/file.yaml --project your_ory_project
+        command 2
+        command 3
+        ...
 ```
 
 Replace `${{ secrets.ORY_USERNAME }}` and `${{ secrets.ORY_PASSWORD }}` with your ORY username and password, respectively. **It's highly recommended to store sensitive information like passwords as encrypted secrets in your repository or organization.**
