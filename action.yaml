@@ -1,5 +1,9 @@
 name: "ORY CLI"
 description: "Authenticate and run ORY CLI commands"
+author: "Luka Giorgadze"
+branding:
+  icon: "command"
+  color: "gray-dark"
 inputs:
   username:
     description: "ORY username"
