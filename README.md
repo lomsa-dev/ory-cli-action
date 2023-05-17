@@ -20,7 +20,7 @@ steps:
     with:
       username: ${{ secrets.ORY_USERNAME }}
       password: ${{ secrets.ORY_PASSWORD }}
-      command: |
+      commands: |
         update opl --file ./path/to/file.yaml --project your_ory_project
         command 2
         command 3

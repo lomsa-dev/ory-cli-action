@@ -1,18 +1,18 @@
-name: "ORY CLI"
-description: "Authenticate and run ORY CLI commands"
+name: "Ory CLI"
+description: "Authenticate and run Ory CLI commands"
 author: "Luka Giorgadze"
 branding:
   icon: "command"
   color: "gray-dark"
 inputs:
   username:
-    description: "ORY username"
+    description: "Ory username"
     required: true
   password:
-    description: "ORY password"
+    description: "Ory password"
     required: true
   commands:
-    description: "Newline-separated list of ORY CLI commands to run"
+    description: "Newline-separated list of Ory CLI commands to run"
     required: true
 runs:
   using: "composite"
