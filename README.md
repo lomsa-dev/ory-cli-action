@@ -16,7 +16,7 @@ steps:
   - uses: actions/checkout@v3
 
   - name: Run Ory CLI Command
-    uses: lomsa-dev/ory-action@v1
+    uses: lomsa-dev/ory-cli-action@v1
     with:
       username: ${{ secrets.ORY_USERNAME }}
       password: ${{ secrets.ORY_PASSWORD }}
