@@ -38,7 +38,7 @@ runs:
         IFS=$'\n'
         for command in $COMMANDS
         do
-          /usr/local/bin/ory $command
+          ory $command
         done
       shell: bash
       env:
