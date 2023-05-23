@@ -34,9 +34,9 @@ runs:
         EOF
       shell: bash
     - run: |
-        IFS=$'\n' read -d '' -ra commands <<< "${{ inputs.commands }}"
-        for command in "${commands[@]}"; do
-          ory "$command"
+        IFS=$'\n'
+        for command in ${inputs.commands}
+        do
+          /usr/local/bin/ory "$command"
         done
       shell: bash
-
