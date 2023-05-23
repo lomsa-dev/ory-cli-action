@@ -33,9 +33,8 @@ runs:
         expect EOF
       shell: bash
     - run: |
-        IFS=$'\n'
-        for command in ${inputs.commands}
-        do
-          /usr/local/bin/ory "$command"
+        IFS=$'\n' read -d '' -ra commands <<< "${{ inputs.commands }}"
+        for command in "${commands[@]}"; do
+          ory "$command"
         done
       shell: bash
