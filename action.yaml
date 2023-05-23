@@ -22,7 +22,7 @@ runs:
     - run: bash <(curl https://raw.githubusercontent.com/ory/meta/master/install.sh) -b . ory && sudo mv ./ory /usr/local/bin/
       shell: bash
     - run: |
-        /usr/bin/expect <<EOF
+        /usr/bin/expect <<'EOF'
         spawn ory auth
         expect "Do you want to sign in to an existing Ory Network account?"
         send -- "y\r"
@@ -30,7 +30,8 @@ runs:
         send -- "${{ inputs.username }}\r"
         expect "Password:"
         send -- "${{ inputs.password }}\r"
-        expect EOF
+        expect eof
+        EOF
       shell: bash
     - run: |
         IFS=$'\n' read -d '' -ra commands <<< "${{ inputs.commands }}"
@@ -38,3 +39,4 @@ runs:
           ory "$command"
         done
       shell: bash
+
