@@ -33,10 +33,13 @@ runs:
         expect eof
         EOF
       shell: bash
-    - run: |
+    - name: Run commands
+      run: |
         IFS=$'\n'
-        for command in ${inputs.commands}
+        for command in $COMMANDS
         do
-          /usr/local/bin/ory "$command"
+          eval "/usr/local/bin/ory $command"
         done
       shell: bash
+      env:
+        COMMANDS: ${{ inputs.commands }}
