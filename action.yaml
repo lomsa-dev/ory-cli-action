@@ -33,7 +33,9 @@ runs:
         expect EOF
       shell: bash
     - run: |
-        for command in ${{ inputs.commands }}; do
-          ory $command
+        IFS=$'\n'
+        for command in ${inputs.commands}
+        do
+          /usr/local/bin/ory "$command"
         done
       shell: bash
